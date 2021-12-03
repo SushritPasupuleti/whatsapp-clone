@@ -33,6 +33,7 @@ router.post('/get_all_users', jsonParser, (req, res) => {
 
 router.post('/get_by_token/', (req, res) => {
     const key = req.body.SECURITY_KEY;
+    // console.log(key, SECURITY_KEY)
     if(key != SECURITY_KEY) res.status(403).json("Permission denied.")
     else{
         User.findOne({token: req.body.token}, (err, user) => {
