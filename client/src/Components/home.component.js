@@ -51,6 +51,7 @@ const Home = ({location}) => {
     useEffect(() => {
         if(location.search && userInfo._id){
             const { to } = queryString.parse(location.search);
+            console.log("TO: ", to)
             socket = io(URL);
             if(to){
                 setTarget(to);
@@ -81,6 +82,7 @@ const Home = ({location}) => {
     useEffect(() => {
         if(location.search && userInfo._id){
             const {group} = queryString.parse(location.search);
+            console.log("GROUP: ", group)
             socket = io(URL);
             if(group && userInfo._id){
                 getGroupByCode(group).then(result => setTargetGroup(result));
